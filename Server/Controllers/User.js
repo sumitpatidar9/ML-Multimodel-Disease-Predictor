@@ -97,11 +97,82 @@ const Signin = async (req, res) => {
 
 
 
+const verifyToken = async (req, res, next) => {
+    const token = await req.signedCookies[cookieName];
+    if (!token) {
+        return res.status(401).json({ message: "Unauthorized" });
+    }
+
+    try {
+        const decoded = jwt.verify(token, jwtsecret);
+        res.locals.jwtData = decoded;
+        return next();
+    }
+
+    catch (error) {
+        return res.status(403).json({ message: "Invalid token" });
+    }
+};
+
+
+
+
+
+
+const sendUser = async (req, res) => {
+    
+    try{
+        const email = res.locals.jwtData.email;
+        const user = await User.findOne({email});
+        return res.status(200).json({ message: "Authenticated", user: user });
+    }
+
+    catch(error){
+        console.log('Error in auth');
+    }
+}
+
+
+
+const Logout = async (req, res) => {
+
+    try {
+        console.log(res.locals.jwtData);
+        const user = await User.findById(res.locals.jwtData.id);
+
+        if (!user) {
+            return res.status(401).send("User not registered OR Token malfunctioned");
+        }
+
+        if (user._id.toString() !== res.locals.jwtData.id) {
+            return res.status(401).send("Permissions didn't match");
+        }
+
+        res.clearCookie(cookieName, {
+            httpOnly: true,
+            domain: "localhost",
+            signed: true,
+            path: "/",
+        });
+
+        return res
+            .status(200)
+            .json({ message: "OK", name: user.name, email: user.email });
+
+    }
+
+    catch (error) {
+        console.log(error);
+        return res.status(200).json({ message: "ERROR", cause: error.message });
+    }
+}
+
 
 
 const Home = (req, res)=>{
     res.send("This is home page");
 }
 
+export { Signup, Signin, verifyToken, Logout , sendUser, Home};
 
-export {Home, Signin, Signup}
+
