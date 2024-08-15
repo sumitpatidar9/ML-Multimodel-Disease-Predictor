@@ -13,7 +13,7 @@ const jwtsecret = process.env.JWT_SECRET;
 
 const Signup = async (req, res) => {
 
-    const { name, lastname, email, password } = req.body;
+    const { name, lastname, username, email, password, gender, dob, address, contact } = req.body;
 
     try {
         const user = await User.findOne({ email });
@@ -24,8 +24,14 @@ const Signup = async (req, res) => {
 
         else {
             const hashedPassword = await hash(password, 10);
-            const newUser = new User({ name: name, lastname: lastname, email: email, password: hashedPassword });
-            newUser.save();
+            try{
+                const newUser = new User({ name: name, lastname: lastname, username: username, email: email, password: hashedPassword, gender: gender, dob: dob, address: address, contact: contact});
+                newUser.save();
+            }
+
+            catch(error){
+                console.log(error);
+            }
 
             const id = newUser._id.toString();
             const payload = { id, email };
@@ -59,6 +65,7 @@ const Signup = async (req, res) => {
 
 const Signin = async (req, res) => {
     const { email, password } = req.body;
+    console.log(email, password);
 
     try {
         const user = await User.findOne({ email });
@@ -71,7 +78,10 @@ const Signin = async (req, res) => {
             return res.status(403).json({ message: "Incorrect Password" });
         }
 
+        
+
         const id = user._id.toString();
+
         const payload = { id, email };
         const token = jwt.sign(payload, jwtsecret, { expiresIn: '7d' });
 

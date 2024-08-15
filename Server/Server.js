@@ -6,10 +6,18 @@ import env from 'dotenv';
 import { Connect } from './Utils/Connection.js';
 import { router } from './Routes/Routes.js';
 import cookieParser from 'cookie-parser';
+import cors from 'cors';
+
 
 
 const app = express();
 env.config();
+app.use(express.json());
+
+app.use(cors({
+    origin: 'http://localhost:3000', 
+    credentials: true
+}));
 app.use(express.json());
 
 const cookiesecret = process.env.COOKIE_SECRET;

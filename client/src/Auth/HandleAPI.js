@@ -2,9 +2,11 @@ import axios from "axios";
 import toast from "react-hot-toast";
 
 
-const signUpUser = async (name, lastname, password, email) => {
+
+
+const signUpUser = async (name, lastname, username, email, password, gender, dob, address, contact) => {
     try {
-        const response = await axios.post('http://localhost:5000/signup', { name, lastname, password, email }, { withCredentials: true });
+        const response = await axios.post('http://localhost:5000/signup', { name, lastname, username, email, password, gender, dob, address, contact }, { withCredentials: true });
         const data = await response.data;
         return data
     }
@@ -16,7 +18,7 @@ const signUpUser = async (name, lastname, password, email) => {
 
 
 
-const loginUser = async (email, password) => {
+const signInUser = async (email, password) => {
 
     try {
         const response = await axios.post('http://localhost:5000/signin', { email, password }, { withCredentials: true });
@@ -71,4 +73,4 @@ const logoutUser = async () => {
 
 
 
-export { signUpUser, loginUser, checkAuthStatus, logoutUser };
+export { signUpUser, signInUser, checkAuthStatus, logoutUser };
