@@ -60,6 +60,11 @@ const UserSchema = new mongoose.Schema({
     required: true,
    },
 
+   dob:{
+    type: String,
+    required: true,
+   },
+   
     files:[FileSchema],
 });
 

@@ -54,6 +54,7 @@ const Signin = () => {
 }
 
 
+
 useEffect(() => {
     if (auth.isLoggedIn && auth.user) {
         return navigate("/home");
@@ -61,14 +62,15 @@ useEffect(() => {
 }, [auth]);
 
 
+
   return (
     <div className='main-container'>
-      <MDBContainer fluid className='bg-dark'>
+      <MDBContainer fluid className='bg-dark outer'>
 
         <MDBRow className='d-flex justify-content-center align-items-center h-100 inner'>
           <MDBCol>
 
-            <MDBCard className='my-4'>
+            <MDBCard className='my-4 inner-card'>
 
               <MDBRow className='g-0'>
 

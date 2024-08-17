@@ -1,0 +1,253 @@
+
+
+.main-container{
+    background-color: white; 
+    width: 100%;
+    height: 100vh;
+    display: flex;
+}
+
+.left-bar{
+    background-color: #694F8E;
+    position: relative;
+    width: 15%;
+    height: 100%;
+}
+
+.left-bar-heading{
+    color:white;
+    position: relative;
+    left: 15%;
+    top: 7%;
+}
+
+.left-bar-button{
+    display: flex;
+    height: 50%;
+    flex-direction: column;
+    /*background-color: rgb(77, 50, 50);*/
+    position: relative;
+    top: 10%;
+}
+
+
+.left-bar-button1{
+    font-weight: 50;
+    width: 90%;
+    border: none;
+    color:white;
+    background-color:transparent; 
+    position: relative;
+    top:1rem;
+    left: 5%;
+    font-size: 20px;
+    border-radius: 2%;
+}
+
+
+.left-bar-button1-icon{
+    width:20px;
+    height: 20px;
+    position: relative;
+    right: 10%;
+    color: white;
+}
+
+
+.left-bar-button2{
+    font-weight: 50;
+    width: 90%;
+    border: none;
+    color:white;
+    background-color:transparent;
+    position: relative;
+    top: 2rem;
+    left: 5%;
+    font-size: 20px;
+    border-radius: 2%;
+}
+
+
+.left-bar-button3{
+    font-weight: 50;
+    width: 90%;
+    border: none;
+    color:white;
+    background-color:transparent;
+    position: relative;
+    top:3rem;
+    left: 5%;
+    font-size: 20px;
+    border-radius: 2%;
+}
+
+
+
+
+
+.right-bar{
+    width: 85%;
+    background-position: center;
+    background-size: cover;
+}
+
+
+
+
+.card-container{
+    display: flex;
+    flex-direction: row;
+    width: 98%;
+    height: 90%;
+    position: relative;
+    left: 1%;
+    top: 5%;
+}
+
+
+.card-container-left{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-container-right{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+
+
+
+.card-name{
+    background-color:white;
+    width: 80%;
+    height: 25%;
+    position: relative;
+    left: 5%;
+    top: 5%;
+    border-radius:10px;
+    border: 1px solid #c0c0c1;
+    overflow: hidden;
+    float: left;
+    
+}
+
+
+
+.card-name-upper{
+    background-color:#FFDFD6;
+    height: 40%;
+    font-size: 20px;
+    padding: 3%;
+    font-weight: 400;
+    color: black;
+}
+
+
+.card-name-lower{
+    background-color: white;
+    height: 58%;
+    padding: 4% 0 0 4%;
+}
+
+
+.left-para{
+    color: black;
+    font-weight: 400;
+}
+
+
+
+
+
+.card-email{
+    background-color:white;
+    width: 80%;
+    height: 25%;
+    position: relative;
+    left: 5%;
+    top: 10%;
+    border-radius:10px;
+    border: 1px solid #c0c0c1;
+    overflow: hidden;
+    
+}
+
+
+
+
+.card-gender{
+    background-color:white;
+    width: 80%;
+    height: 30%;
+    position: relative;
+    left: 5%;
+    top: 15%;
+    border-radius:10px;
+    border: 1px solid #c0c0c1;
+    overflow: hidden;
+}
+
+
+
+
+.card-address{
+    background-color:white;
+    width: 80%;
+    height: 30%;
+    position: relative;
+    left: 5%;
+    top: 5%;
+    border-radius:10px;
+    border: 1px solid #c0c0c1;
+    overflow: hidden;
+}
+
+
+
+
+
+.edit-profile{
+    background-color:white;
+    width: 80%;
+    height: 50%;
+    position: relative;
+    left: 5%;
+    top: 10%;
+    border-radius:10px;
+    border: 1px solid #c0c0c1;
+    overflow: hidden;
+}
+
+
+.card-edit-upper{
+    background-color:#FFDFD6;
+    height: 20%;
+    font-size: 20px;
+    padding: 3%;
+    font-weight: 400;
+    color: black;
+}
+
+
+.card-edit-lower{
+    background-color: white;
+    height: 58%;
+    padding: 4% 0 0 4%;
+    align-items: center;
+}
+
+.edit-profile-btn{
+    position: relative;
+    top: 20%;
+    left: 20%;
+    width: 40%;
+    height: 20%;
+    border: 1px solid #c0c0c1;
+    border-radius: 5px;
+}
+

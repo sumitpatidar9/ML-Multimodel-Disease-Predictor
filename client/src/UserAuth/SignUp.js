@@ -12,11 +12,12 @@ import {
   MDBRadio,
 }
 
+
+
 from 'mdb-react-ui-kit';
 import 'mdb-react-ui-kit/dist/css/mdb.min.css';
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import 'mdbreact/dist/css/mdb.css';
-
 
 
 import './SignUp.css';
@@ -24,9 +25,9 @@ import { toast } from 'react-hot-toast';
 import {useAuth} from '../Auth/AuthContext';
 
 
-
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+
 
 const Signup = () => {
 
@@ -62,6 +63,7 @@ const Signup = () => {
 }
 
 
+
 useEffect(() => {
   if (auth.isLoggedIn && auth.user) {
       return navigate("/home");
@@ -69,14 +71,15 @@ useEffect(() => {
 }, [auth]);
 
 
+
   return (
     <div className='main-container'>
-      <MDBContainer fluid className='bg-dark'>
+      <MDBContainer fluid className='bg-dark outer'>
 
         <MDBRow className='d-flex justify-content-center align-items-center h-100 inner'>
           <MDBCol>
 
-            <MDBCard className='my-4'>
+            <MDBCard className='my-4 inner-card' >
 
               <MDBRow className='g-0'>
 
@@ -122,7 +125,7 @@ useEffect(() => {
 
                     <div className="d-flex justify-content-end pt-3">
                       <MDBBtn color='light' size='lg'>Reset all</MDBBtn>
-                      <MDBBtn className='ms-2' color='warning' size='lg' onClick={handleSubmit}>Submit form</MDBBtn>
+                      <MDBBtn className='ms-2' color='warning' size='lg' onClick={handleSubmit}>Sign Up</MDBBtn>
                     </div>
 
                   </MDBCardBody>

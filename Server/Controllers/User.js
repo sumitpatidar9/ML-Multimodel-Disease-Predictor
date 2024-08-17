@@ -11,6 +11,7 @@ const jwtsecret = process.env.JWT_SECRET;
 
 
 
+
 const Signup = async (req, res) => {
 
     const { name, lastname, username, email, password, gender, dob, address, contact } = req.body;
@@ -24,18 +25,14 @@ const Signup = async (req, res) => {
 
         else {
             const hashedPassword = await hash(password, 10);
-            try{
-                const newUser = new User({ name: name, lastname: lastname, username: username, email: email, password: hashedPassword, gender: gender, dob: dob, address: address, contact: contact});
-                newUser.save();
-            }
-
-            catch(error){
-                console.log(error);
-            }
-
+            const newUser = new User({ name: name, lastname: lastname, username: username, email: email, password: hashedPassword, gender: gender, dob: dob, address: address, contact: contact});
+            newUser.save();
+               
             const id = newUser._id.toString();
             const payload = { id, email };
             const token = jwt.sign(payload, jwtsecret, { expiresIn: '7d' });
+
+            
 
             const expires = new Date();
             expires.setDate(expires.getDate() + 7);
@@ -46,9 +43,7 @@ const Signup = async (req, res) => {
                 expires,
                 httpOnly: true,
                 signed: true,
-            });
-
-            console.log('signed up ');
+            }); 
 
             return res.status(200).json({ message: "Signup successful", name: newUser.name, email: newUser.email });
         }
@@ -58,6 +53,7 @@ const Signup = async (req, res) => {
         return res.status(404).json({ message: 'Error Signup!' });
     }
 }
+
 
 
 
@@ -107,8 +103,10 @@ const Signin = async (req, res) => {
 
 
 
+
 const verifyToken = async (req, res, next) => {
     const token = await req.signedCookies[cookieName];
+
     if (!token) {
         return res.status(401).json({ message: "Unauthorized" });
     }
@@ -135,6 +133,7 @@ const sendUser = async (req, res) => {
         const email = res.locals.jwtData.email;
         const user = await User.findOne({email});
         return res.status(200).json({ message: "Authenticated", user: user });
+        console.log(user);
     }
 
     catch(error){

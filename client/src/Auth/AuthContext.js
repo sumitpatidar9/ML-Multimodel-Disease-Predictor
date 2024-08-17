@@ -12,6 +12,8 @@ const AuthProvider = ({ children }) => {
     const [user, setUser] = useState({});
     const [isLoggedIn, setIsLoggedIn] = useState(false);
 
+
+
     useEffect(() => {
         const checkStatus = async () => {
             const data = await checkAuthStatus();
@@ -22,9 +24,9 @@ const AuthProvider = ({ children }) => {
             }
 
         }
-
         checkStatus();
     }, []);
+
 
 
     const signin = async (email, password) => {
@@ -40,7 +42,8 @@ const AuthProvider = ({ children }) => {
 
     const signup = async (name, lastname, username, email, password, gender, dob, address, contact) => {
         const data = await signUpUser(name, lastname, username, email, password, gender, dob, address, contact);
-        if (data) {           
+        if (data) {    
+            console.log(data);       
             setUser({ email: data.email, name: data.name });
             setIsLoggedIn(true);
         }
