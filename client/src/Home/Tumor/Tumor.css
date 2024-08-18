@@ -1,0 +1,153 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
+
+
+
+.main-container-tumor-1{
+    width: 100%;
+    height: 100vh;
+    background-image: url('../images/Banner.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+.main-container-tumor-1-overlay{
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+
+
+
+
+.text-container{
+    width: 60%;
+    height: 70vh;
+    text-align: left;
+}
+
+
+.text-container-heading{
+    color: white;
+    font-size:40px;
+    font-family: "Playfair Display", serif;
+    position: relative;
+    top: 40%;
+    left: 15%;
+}
+
+.text-container-text{
+    color: white;
+    font-size:20px;
+    font-family: "Playfair Display", serif;
+    position: relative;
+    top: 40%;
+    left: 15%;
+}
+
+
+
+
+
+
+
+.form-container{
+    width: 40%;
+    height: 10vh;
+    position: relative;
+    left: 30%;
+    top: 5%;
+}
+
+
+.form-container-input{
+    color: white;
+}
+
+.form-container-submit{
+    border: none;
+    width: 30%;
+    height: 5vh;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.main-container-tumor-2{
+    width: 100%;
+    height: 110vh;
+    background-color: aqua;
+}
+
+
+
+.main-container-tumor-2-overlay1{
+    background-color: blueviolet;
+    width: 60%;
+    height: 80vh;
+    position: relative;
+    top: 10%;
+    left: 20%
+}
+
+.image-preview-div{
+    background-color: red;
+    width: 100%;
+    height: 80vh;
+}
+
+.image-preview{
+    width: 100%;
+    height: 100%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.main-container-tumor-2-overlay2{
+    background-color: rgb(226, 43, 150);
+    width: 100%;
+    height: 30vh;
+    position: relative;
+    top: 10%;
+}
+
+
+.tumor-loading{
+    background-color: rebeccapurple;
+    width: 50%;
+    position: relative;
+    left: 25%;
+    top: 10%;
+    color: white;
+}
+
+
+
+
+.tumor-results{
+    background-color: rgb(51, 153, 112);
+    width: 50%;
+    position: relative;
+    left: 25%;
+    top: 10%;
+    color: white;
+}

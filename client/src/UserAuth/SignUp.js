@@ -42,7 +42,6 @@ const Signup = () => {
   const [contact, setContact] = useState('');
 
   
-
   const auth = useAuth();
   const navigate = useNavigate();
 

@@ -8,12 +8,26 @@ const FileSchema = new mongoose.Schema({
         required: true,
     },
 
-    content: {
+    ProfilePicture: {
         type: String,
         required: true,
     }
 });
 
+
+const userTests = new mongoose.Schema({
+    testName: {
+        type: String,
+    },
+
+    diseaseType: {
+        type: String,
+    },
+
+    imageUrl:{
+        type: String,
+    }
+});
 
 
 const UserSchema = new mongoose.Schema({
@@ -66,6 +80,7 @@ const UserSchema = new mongoose.Schema({
    },
    
     files:[FileSchema],
+    Tests:[userTests],
 });
 
 

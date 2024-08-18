@@ -18,6 +18,7 @@ const Profile = () => {
     const [address, setAddress] = useState('user');
     const [contact, setContact] = useState('user');
 
+    
 
     useEffect(() => {
         const checkStatus = async () => {
@@ -122,8 +123,10 @@ const Profile = () => {
                     </div>
                 </div>
 
-
             </div>
+
+
+
 
         </div>
     )

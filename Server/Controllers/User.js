@@ -102,8 +102,6 @@ const Signin = async (req, res) => {
 
 
 
-
-
 const verifyToken = async (req, res, next) => {
     const token = await req.signedCookies[cookieName];
 
@@ -121,8 +119,6 @@ const verifyToken = async (req, res, next) => {
         return res.status(403).json({ message: "Invalid token" });
     }
 };
-
-
 
 
 
