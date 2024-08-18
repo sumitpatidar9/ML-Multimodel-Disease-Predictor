@@ -9,8 +9,8 @@ import { Home } from '../Home/Home';
 import { Navabar } from '../Navbar/Navbar';
 
 
-import { Tumor } from '../Home/Tumor/Tumor.js';
-import { Report } from '../Home/Tumor/Report.js';
+import { Tumor } from '../Home/Tests/Tumor.js';
+import { Report } from '../Home/Tests/Report.js';
 
 
 
