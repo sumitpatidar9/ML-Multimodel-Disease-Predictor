@@ -7,8 +7,10 @@ import {Signup} from '../UserAuth/SignUp';
 import { Dashboard } from '../Dashboard/Dashboard';
 import { Home } from '../Home/Home';
 import { Navabar } from '../Navbar/Navbar';
-import { Tumor } from '../Home/Tumor/Tumor.js';
 
+
+import { Tumor } from '../Home/Tumor/Tumor.js';
+import { Report } from '../Home/Tumor/Report.js';
 
 
 
@@ -26,6 +28,7 @@ const Controller = () => {
                     
 
                     <Route path = "/tumor" element = {<Tumor/>} />
+                    <Route path = "/report" element = {<Report/>}/>
 
 
 

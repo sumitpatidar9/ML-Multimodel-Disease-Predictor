@@ -12,7 +12,7 @@ function checkCondition(condition) {
         } else {
           reject("No");
         }
-      }, 100000); 
+      }, 2000); 
     });
   }
 
@@ -59,6 +59,10 @@ function checkCondition(condition) {
 // }
 
 // export { tumor }
+
+
+
+
 
 const tumor = async (req, res) => {
   try {
