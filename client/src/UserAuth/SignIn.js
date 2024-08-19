@@ -43,9 +43,7 @@ const Signin = () => {
     e.preventDefault();
 
     try {
-        //toast.loading("Signing In", { id: "signin" });
         await auth.signin(email, password);
-        toast.success("Logged in Successfully", { id: "signin" });
     }
 
     catch (error) {

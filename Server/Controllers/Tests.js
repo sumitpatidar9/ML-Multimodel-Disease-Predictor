@@ -18,49 +18,6 @@ function checkCondition(condition) {
 
 
 
-// const tumor = async(req, res) => {
-//     try{
-//         const email = res.locals.jwtData.email;
-//         const user = await User.findOne({email});
-
-//         if (!user) {
-//             return res.status(404).send({
-//                 message: 'User not found',
-//             });
-//         }
-
-//         const imagePath = path.join('uploads/', req.file.filename);
-
-//         //Flask promise
-//         const result = await checkCondition(true);
-
-//         const newUserTest = {
-//             testName: 'tumor',
-//             imagePath: imagePath,
-//             diseaseType: result
-//         };
-
-//         user.Tests.push(newUserTest);
-
-//         await user.save();
-
-//         res.send({
-//             message: 'Image uploaded and path stored successfully',
-//             filePath: imagePath,
-//         });
-//     }
-
-//     catch (error) {
-//         console.error('Error storing the image path:', error);
-//         res.status(500).send({
-//             message: 'Error storing the image path',
-//         });
-//     }
-// }
-
-// export { tumor }
-
-
 
 
 
@@ -75,14 +32,14 @@ const tumor = async (req, res) => {
       });
     }
 
-    const imagePath = path.join("uploads", req.file.filename);
+    const imagePath = path.join("uploads", req.file.filename).replace(/\\/g, '/');
 
     //Flask promise
     const result = await checkCondition(true);
 
     const newUserTest = {
-      testName: "tumor",
-      imagePath: imagePath,
+      testName: "Tumor",
+      imageUrl: imagePath,
       diseaseType: result,
     };
 
@@ -92,7 +49,7 @@ const tumor = async (req, res) => {
 
     await res.send({
       message: "Image uploaded and path stored successfully",
-      testName: "tumor",
+      testName: "Tumor",
       imagePath: imagePath,
       diseaseType: result,
     });
@@ -112,6 +69,10 @@ const tumor = async (req, res) => {
 
 
 
+
+
+
+
 const pneumonia = async (req, res) => {
   try {
     const email = res.locals.jwtData.email;
@@ -123,14 +84,14 @@ const pneumonia = async (req, res) => {
       });
     }
 
-    const imagePath = path.join("uploads", req.file.filename);
+    const imagePath = path.join("uploads", req.file.filename).replace(/\\/g, '/');
 
     //Flask promise
     const result = await checkCondition(true);
 
     const newUserTest = {
-      testName: "pneumonia",
-      imagePath: imagePath,
+      testName: "Pneumonia",
+      imageUrl: imagePath,
       diseaseType: result,
     };
 
@@ -138,9 +99,11 @@ const pneumonia = async (req, res) => {
 
     await user.save();
 
-    res.send({
+    await res.send({
       message: "Image uploaded and path stored successfully",
-      filePath: imagePath,
+      testName: "Pneumonia",
+      imagePath: imagePath,
+      diseaseType: result,
     });
   } 
   
@@ -173,14 +136,14 @@ const alzheimer = async (req, res) => {
       });
     }
 
-    const imagePath = path.join("uploads", req.file.filename);
+    const imagePath = path.join("uploads", req.file.filename).replace(/\\/g, '/');
 
     //Flask promise
     const result = await checkCondition(true);
 
     const newUserTest = {
-      testName: "alzheimer",
-      imagePath: imagePath,
+      testName: "Alzheimer",
+      imageUrl: imagePath,
       diseaseType: result,
     };
 
@@ -188,9 +151,11 @@ const alzheimer = async (req, res) => {
 
     await user.save();
 
-    res.send({
+    await res.send({
       message: "Image uploaded and path stored successfully",
-      filePath: imagePath,
+      testName: "Alzheimer",
+      imagePath: imagePath,
+      diseaseType: result,
     });
   } 
   
@@ -224,14 +189,13 @@ const covid = async (req, res) => {
       });
     }
 
-    const imagePath = path.join("uploads", req.file.filename);
-
+    const imagePath = path.join("uploads", req.file.filename).replace(/\\/g, '/');
     //Flask promise
     const result = await checkCondition(true);
 
     const newUserTest = {
-      testName: "covid",
-      imagePath: imagePath,
+      testName: "Covid",
+      imageUrl: imagePath,
       diseaseType: result,
     };
 
@@ -239,9 +203,11 @@ const covid = async (req, res) => {
 
     await user.save();
 
-    res.send({
+    await res.send({
       message: "Image uploaded and path stored successfully",
-      filePath: imagePath,
+      testName: "Covid",
+      imagePath: imagePath,
+      diseaseType: result,
     });
   } 
   
@@ -273,14 +239,14 @@ const tumorSegmentation = async (req, res) => {
       });
     }
 
-    const imagePath = path.join("uploads", req.file.filename);
+    const imagePath = path.join("uploads", req.file.filename).replace(/\\/g, '/');
 
     //Flask promise
     const result = await checkCondition(true);
 
     const newUserTest = {
-      testName: "tumorSegmentation",
-      imagePath: imagePath,
+      testName: "Tumor Segmentation",
+      imageUrl: imagePath,
       diseaseType: result,
     };
 
@@ -288,9 +254,11 @@ const tumorSegmentation = async (req, res) => {
 
     await user.save();
 
-    res.send({
+    await res.send({
       message: "Image uploaded and path stored successfully",
-      filePath: imagePath,
+      testName: "Tumor Segmentation",
+      imagePath: imagePath,
+      diseaseType: result,
     });
   }
   
@@ -322,14 +290,14 @@ const heartDisease = async (req, res) => {
       });
     }
 
-    const imagePath = path.join("uploads", req.file.filename);
+    const imagePath = path.join("uploads", req.file.filename).replace(/\\/g, '/');
 
     //Flask promise
     const result = await checkCondition(true);
 
     const newUserTest = {
-      testName: "heartDisease",
-      imagePath: imagePath,
+      testName: "Heart Disease",
+      imageUrl: imagePath,
       diseaseType: result,
     };
 
@@ -337,11 +305,14 @@ const heartDisease = async (req, res) => {
 
     await user.save();
 
-    res.send({
+    await res.send({
       message: "Image uploaded and path stored successfully",
-      filePath: imagePath,
+      testName: "Heart Disease",
+      imagePath: imagePath,
+      diseaseType: result,
     });
   } 
+
   catch (error) {
     console.error("Error storing the image path:", error);
     res.status(500).send({

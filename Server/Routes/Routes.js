@@ -10,8 +10,7 @@ import { Home, Signin, Signup, verifyToken, sendUser } from "../Controllers/User
 import path from 'path';
 import multer from 'multer';
 import {tumor, pneumonia, alzheimer, covid, tumorSegmentation, heartDisease } from "../Controllers/Tests.js";
-
-
+import { getAllTests } from "../Controllers/getTests.js";
 
 
 const router = Router();
@@ -29,22 +28,23 @@ router.get('/auth', verifyToken, sendUser);
 
 
 
+
+
+
 const storage = multer.diskStorage({
+  
     destination: (req, file, cb) => {
       cb(null, 'uploads/'); 
     },
+
     filename: (req, file, cb) => {
       cb(null, Date.now() + path.extname(file.originalname)); 
     },
   });
   
+
   const upload = multer({ storage: storage });
   
-
-
-
-
-
 
 
   router.post("/tumor", upload.single('image'), verifyToken, tumor);
@@ -52,11 +52,14 @@ const storage = multer.diskStorage({
   router.post("/alzheimer", upload.single('image'), verifyToken, alzheimer);
   router.post("/covid", upload.single('image'), verifyToken, covid);
   router.post(
-    "/tumorSegmentation",
+    "/tumor_segmentation",
     upload.single('image'),
     verifyToken,
     tumorSegmentation
   );
-  router.post("/heartDisease", upload.single('image'), verifyToken, heartDisease);
+  router.post("/heart", upload.single('image'), verifyToken, heartDisease);
+
+
+  router.get("/get_all_tests", verifyToken, getAllTests);
 
 export {router}

@@ -15,11 +15,12 @@ import { useState } from 'react';
 
 import 'mdb-react-ui-kit/dist/css/mdb.min.css';
 import "@fortawesome/fontawesome-free/css/all.min.css";
-import Icon from './Profile.png';
+import ProfileIcon from './images/Profile.png';
+import ProfilePic from './images/profile-user.svg';
 
 
 import { Profile } from './Profile';
-
+import { Tests } from './Tests';
 
 
 
@@ -34,9 +35,7 @@ const Dashboard = () => {
           case 'Profile':
             return <Profile/>;
           case 'Tests':
-            return <div>Tests</div>;
-          case 'Reports':
-            return <div>Reports</div>;
+            return <Tests/>;
           default:
             return <Profile />;
         }
@@ -49,25 +48,24 @@ const Dashboard = () => {
             <div className='main-container'>
 
                 <div className='left-bar'>
+                    <div className='left-bar-profile'>
+                        <img src = {ProfilePic}/>
+
+                    </div>
                     <div className='left-bar-heading'>
                         <h2>Dashboard</h2>
                     </div>
 
 
                     <div className='left-bar-button'>
-                        <button className='left-bar-button1' onClick={() => {setActiveComponent('Profile')}}>
-                            <img src={Icon} className='left-bar-button1-icon'></img>
+                        <button className={`left-bar-button1 ${activeComponent === 'Profile' ? 'active' : ''}`} onClick={() => {setActiveComponent('Profile')}}>
+                            <img src={ProfileIcon} className='left-bar-button1-icon'></img>
                             Profile
                         </button>
 
-                        <button className='left-bar-button2' onClick={() => {setActiveComponent('Tests')}}>
-                            <img src={Icon} className='left-bar-button1-icon'></img>
+                        <button className={`left-bar-button2 ${activeComponent === 'Tests' ? 'active' : ''}`} onClick={() => {setActiveComponent('Tests')}}>
+                            <img src={ProfileIcon} className='left-bar-button1-icon'></img>
                             Tests
-                        </button>
-
-                        <button className='left-bar-button3' onClick={() => {setActiveComponent('Reports')}}>
-                            <img src={Icon} className='left-bar-button1-icon'></img>
-                            Reports
                         </button>
                     </div>
                 </div>

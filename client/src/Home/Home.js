@@ -15,6 +15,11 @@ import "./Home.css";
 import HomeLeft from "./images/HomeLeft.jpg";
 import HomeRight from "./images/HomeRight.jpg";
 import Banner from "./images/Banner.png";
+import Pneumonia from "./images/pneumonia.jpg";
+import Alzheimer from "./images/alzheimer_s.png";
+import Covid from "./images/covid.png";
+import Heart from "./images/heart.png";
+import TumorSegmentation from "./images/tumorSegments.png";
 
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../Auth/AuthContext";
@@ -26,6 +31,46 @@ const Home = () => {
   const tumorCall = () => {
     if (auth.isLoggedIn && auth.user) {
       return navigate("/tumor");
+    } else {
+      alert("Please login or Signup");
+    }
+  };
+
+  const pneumoniaCall = () => {
+    if (auth.isLoggedIn && auth.user) {
+      return navigate("/pneumonia");
+    } else {
+      alert("Please login or Signup");
+    }
+  };
+
+  const alzheimerCall = () => {
+    if (auth.isLoggedIn && auth.user) {
+      return navigate("/alzheimer");
+    } else {
+      alert("Please login or Signup");
+    }
+  };
+
+  const covidCall = () => {
+    if (auth.isLoggedIn && auth.user) {
+      return navigate("/covid");
+    } else {
+      alert("Please login or Signup");
+    }
+  };
+
+  const tumorSegmentationCall = () => {
+    if (auth.isLoggedIn && auth.user) {
+      return navigate("/tumor_segmentation");
+    } else {
+      alert("Please login or Signup");
+    }
+  };
+
+  const heartDiseaseCall = () => {
+    if (auth.isLoggedIn && auth.user) {
+      return navigate("/heart");
     } else {
       alert("Please login or Signup");
     }
@@ -172,7 +217,7 @@ const Home = () => {
 
         <div className="card-container2">
           <MDBCard>
-            <MDBCardImage src={Banner} position="top" alt="..." />
+            <MDBCardImage src={Pneumonia} position="top" alt="..." />
             <MDBCardBody>
               <MDBCardTitle>Pneumonia Detection</MDBCardTitle>
               <MDBCardText>
@@ -180,7 +225,7 @@ const Home = () => {
                 to ensure accurate and timely detection, facilitating effective
                 treatment and improved patient outcomes.
               </MDBCardText>
-              <MDBBtn href="#" className="button-diagnose">
+              <MDBBtn onClick={pneumoniaCall} className="button-diagnose">
                 Diagnose
               </MDBBtn>
             </MDBCardBody>
@@ -189,7 +234,7 @@ const Home = () => {
 
         <div className="card-container3">
           <MDBCard>
-            <MDBCardImage src={Banner} position="top" alt="..." />
+            <MDBCardImage src={Alzheimer} position="top" alt="..." />
             <MDBCardBody>
               <MDBCardTitle>Alzheimer's Detection</MDBCardTitle>
               <MDBCardText>
@@ -197,7 +242,7 @@ const Home = () => {
                 precise detection of Alzheimer's disease, enabling timely
                 treatment and effective patient management.
               </MDBCardText>
-              <MDBBtn href="#" className="button-diagnose">
+              <MDBBtn onClick={alzheimerCall} className="button-diagnose">
                 Diagnose
               </MDBBtn>
             </MDBCardBody>
@@ -206,7 +251,7 @@ const Home = () => {
 
         <div className="card-container1">
           <MDBCard>
-            <MDBCardImage src={Banner} position="top" alt="..." />
+            <MDBCardImage src={Covid} position="top" alt="..." />
             <MDBCardBody>
               <MDBCardTitle>COVID-19 Diagnosis</MDBCardTitle>
               <MDBCardText>
@@ -214,7 +259,7 @@ const Home = () => {
                 employed for precise and timely COVID-19 detection, ensuring
                 effective management and improved patient outcomes.
               </MDBCardText>
-              <MDBBtn href="#" className="button-diagnose">
+              <MDBBtn onClick={covidCall} className="button-diagnose">
                 Diagnose
               </MDBBtn>
             </MDBCardBody>
@@ -223,7 +268,7 @@ const Home = () => {
 
         <div className="card-container2">
           <MDBCard>
-            <MDBCardImage src={Banner} position="top" alt="..." />
+            <MDBCardImage src={TumorSegmentation} position="top" alt="..." />
             <MDBCardBody>
               <MDBCardTitle>Brain Tumor Segmentation</MDBCardTitle>
               <MDBCardText>
@@ -231,7 +276,10 @@ const Home = () => {
                 brain tumors, enhancing diagnostic accuracy and enabling
                 precise, targeted treatment planning.
               </MDBCardText>
-              <MDBBtn href="#" className="button-diagnose">
+              <MDBBtn
+                onClick={tumorSegmentationCall}
+                className="button-diagnose"
+              >
                 Diagnose
               </MDBBtn>
             </MDBCardBody>
@@ -240,7 +288,7 @@ const Home = () => {
 
         <div className="card-container3">
           <MDBCard>
-            <MDBCardImage src={Banner} position="top" alt="..." />
+            <MDBCardImage src={Heart} position="top" alt="..." />
             <MDBCardBody>
               <MDBCardTitle>Heart Disease Prediction</MDBCardTitle>
               <MDBCardText>
@@ -248,7 +296,7 @@ const Home = () => {
                 high accuracy, allowing for early intervention and tailored
                 treatment strategies to enhance patient health and outcomes.
               </MDBCardText>
-              <MDBBtn href="#" className="button-diagnose">
+              <MDBBtn onClick={heartDiseaseCall} className="button-diagnose">
                 Diagnose
               </MDBBtn>
             </MDBCardBody>
@@ -256,7 +304,79 @@ const Home = () => {
         </div>
       </div>
 
-      <div className="main-container8">dwds</div>
+      <div className="main-container8">
+        <footer className="footer">
+          {/* Newsletter Signup Section */}
+          <div className="newsletter">
+            <h2>Explore Our Free Health Resources</h2>
+            <p>Get wellness tips to help you live happier and healthier</p>
+            <div className="subscribe">
+              <input type="email" placeholder="Enter your email address" />
+              <button>Subscribe</button>
+            </div>
+            <p className="agreement">
+              By clicking Subscribe, I agree to the WebMD{" "}
+              <a href="#">Terms & Conditions</a> &{" "}
+              <a href="#">Privacy Policy</a> and understand that I may opt out
+              of appName subscriptions at any time.
+            </p>
+          </div>
+
+          {/* Social Media and App Download Section */}
+          <div className="social-app">
+            <div className="social-media">
+              <p>Follow appName on Social Media</p>
+              <div className="icons">
+                <a href="#">
+                  <i className="fab fa-facebook"></i>
+                </a>
+                <a href="#">
+                  <i className="fab fa-twitter"></i>
+                </a>
+                <a href="#">
+                  <i className="fab fa-instagram"></i>
+                </a>
+                <a href="#">
+                  <i className="fab fa-tiktok"></i>
+                </a>
+                <a href="#">
+                  <i className="fab fa-pinterest"></i>
+                </a>
+              </div>
+            </div>
+            <div className="download-app">
+              <p>Download appName App</p>
+              <div className="app-links">
+                <a href="#">
+                  <img src="appstore.png" alt="App Store" />
+                </a>
+                <a href="#">
+                  <img src="playstore.png" alt="Google Play" />
+                </a>
+              </div>
+            </div>
+          </div>
+
+          {/* Footer Links and Copyright Section */}
+          <div className="footer-bottom">
+            <div className="footer-links">
+              <a href="#">Policies</a>
+              <a href="#">About</a>
+              <a href="#">For Advertisers</a>
+            </div>
+            <p>Advertise with Us</p>
+            <div className="privacy-icons">
+              <img src="truste.png" alt="TRUSTe Certified Privacy" />
+              <img src="adchoices.png" alt="AdChoices" />
+            </div>
+            <p>
+              © 2005 - 2024 WebMD LLC, an Internet Brands company. All rights
+              reserved. WebMD does not provide medical advice, diagnosis or
+              treatment. <a href="#">See additional information.</a>
+            </p>
+          </div>
+        </footer>
+      </div>
     </>
   );
 };

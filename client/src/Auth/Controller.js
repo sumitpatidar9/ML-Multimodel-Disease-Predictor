@@ -11,17 +11,22 @@ import { Navabar } from '../Navbar/Navbar';
 
 import { Tumor } from '../Home/Tests/Tumor.js';
 import { Report } from '../Home/Tests/Report.js';
-
-
+import { Pneumonia } from '../Home/Tests/pneumonia.js';
+import {Alzheimer} from '../Home/Tests/alzheimer.js';
+import {Covid} from '../Home/Tests/covid.js';
+import {TumorSegmentation} from '../Home/Tests/tumorSegmentation.js';
+import {HeartDisease} from '../Home/Tests/heartDisease.js';
 
 
 const Controller = () => {
     const auth = useAuth();
     return (
         <>  
-            <Navabar/>
+            
             <BrowserRouter>
+            <Navabar/>
                 <Routes>
+                
                     <Route path="/signin" element={<Signin />} />
                     <Route path="/signup" element={<Signup />} />
                     <Route path= "/home" element={<Home/>} />
@@ -29,7 +34,12 @@ const Controller = () => {
 
                     <Route path = "/tumor" element = {<Tumor/>} />
                     <Route path = "/report" element = {<Report/>}/>
-
+                    <Route path='/pneumonia' element = {<Pneumonia/>}/>
+                    <Route path = '/alzheimer' element = {<Alzheimer/>} />
+                    <Route path = '/covid' element = {<Covid/>} />
+                    <Route path = '/tumor_segmentation' element = {<TumorSegmentation/>} />
+                    <Route path = '/heart' element = {<HeartDisease/>} />
+                    
 
 
                     {auth.isLoggedIn && auth.user && (

@@ -50,14 +50,11 @@ const Signup = () => {
     e.preventDefault();
 
     try {
-        toast.loading("Signing Up", { id: "signup" });
         await auth.signup(name, lastname, username, email, password, gender, dob, address, contact);
-        toast.success("Signed Up Successfully", { id: "signup" });
     }
 
     catch (error) {
         console.log('Error signup');
-        toast.error("Sign Up Failed", { id: "signup" });
     }
 }
 
